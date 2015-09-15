@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created with IntelliJ IDEA.
  * User: tomp
@@ -14,8 +16,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class CheckpreloadController {
 
-    @RequestMapping("/checkpreload.htm")
-    public @ResponseBody String checkpreload() {
+    @RequestMapping("/login")
+    public @ResponseBody String login(HttpSession session) {
+        session.setAttribute("name", "tomp");
         return "success";
+    }
+
+    @RequestMapping("/checkpreload.htm")
+    public @ResponseBody String checkpreload(HttpSession session) {
+        return (String) session.getAttribute("name");
     }
 }
