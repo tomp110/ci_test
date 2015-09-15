@@ -102,7 +102,7 @@
     </dependencyManagement>
 
     <build>
-        <finalName>test</finalName>
+        <finalName>ci_test</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
