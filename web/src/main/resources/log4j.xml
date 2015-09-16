@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- ===================================================================== -->
+    <!-- 以下是 appender 的定义 -->
+    <!-- ===================================================================== -->
+    <appender name="PROJECT-FILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="append" value="true" />
+        <param name="datePattern" value="'.'yyyy-MM-dd" />
+        <param name="encoding" value="utf-8" />
+        <param name="File" value="/Users/tomp/Documents/mizar.log" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%n%r [%p] [%d{yyyy-MM-dd HH:mm:ss,SSS}] - %X{method} %X{requestURIWithQueryString}%n %l - %m%n" />
+        </layout>
+    </appender>
+
+
+    <!-- ===================================================================== -->
+    <!-- Root logger的定义 -->
+    <!-- ===================================================================== -->
+
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="PROJECT-FILE"/>
+    </root>
+</log4j:configuration>
